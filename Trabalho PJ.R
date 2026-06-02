@@ -84,7 +84,7 @@ cen4 <- simular_cenario(mult_perdas = 0.8, cadm = 0.75)
 
 resumo <- function(x) {
   c(
-    Media = mean(x),
+    Média = mean(x),
     Prob_lucro = mean(x > 0)
   )
 }
@@ -98,13 +98,13 @@ rbind(
 
 par(mfrow=c(2,2))
 
-hist(cen1/1e6, main="Cenário 1", col="lightblue", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia" ,xlim = c(-30, 50), xaxt = "n")
+hist(cen1/1e6, main="Cenário 1", col="lightblue", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência" ,xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-30, 50, by = 10))
-hist(cen2/1e6, main="Cenário 2", col="lightcoral", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia", xlim = c(-30, 50), xaxt = "n")
+hist(cen2/1e6, main="Cenário 2", col="lightcoral", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência", xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-30, 50, by = 10))
-hist(cen3/1e6, main="Cenário 3", col="lightgreen", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia", xlim = c(-30, 50), xaxt = "n")
+hist(cen3/1e6, main="Cenário 3", col="lightgreen", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência", xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-30, 50, by = 10))
-hist(cen4/1e6, main="Cenário 4", col="lightgoldenrod", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia", xlim = c(-30, 50), xaxt = "n")
+hist(cen4/1e6, main="Cenário 4", col="lightgoldenrod", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência", xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-30, 50, by = 10))
 
 
@@ -118,15 +118,15 @@ cen6 <- simular_cenario(mult_perdas = 2, sd_Pauf = sPauf*2)
 cen7 <- simular_cenario(mean_Remp = mRemp/2, mean_Cemp = mCemp/2)
 
 # Cenário 8 Mais Investimentos
-cen8 <- simular_cenario(mean_Rcap = 2*rcap, mean_Ccap = 2*ccap)
+cen8 <- simular_cenario(mean_Rcap = 2*mRcap, mean_Ccap = 2*mCcap)
 
-hist(cen5/1e6, main="Cenário 5", col="blue", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia" ,xlim = c(-30, 50), xaxt = "n")
+hist(cen5/1e6, main="Cenário 5", col="blue", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência" ,xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-30, 50, by = 10))
-hist(cen6/1e6, main="Cenário 6", col="red", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia", xlim = c(-30, 50), xaxt = "n")
+hist(cen6/1e6, main="Cenário 6", col="red", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência", xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-30, 50, by = 10))
-hist(cen7/1e6, main="Cenário 7", col="green", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia", xlim = c(-30, 50), xaxt = "n")
+hist(cen7/1e6, main="Cenário 7", col="green", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência", xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-30, 50, by = 10))
-hist(cen8/1e6, main="Cenário 8", col="gold", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia", xlim = c(-30, 50), xaxt = "n")
+hist(cen8/1e6, main="Cenário 8", col="gold", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência", xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-30, 50, by = 10))
 
 rbind(
@@ -141,8 +141,8 @@ rbind(
 library(MASS)
 
 mvnorm <- function(n_sim = 50000, mult_perdas = 1, cadm = 1,
-                                medias,
-                                Sigma){
+                   medias,
+                   Sigma){
   dados <- mvrnorm(
     n = n_sim,
     mu = medias,
@@ -212,13 +212,13 @@ cena4 <- mvnorm(
   Sigma = Sigma
 )
 
-hist(cena1/1e6, main="Cenário 1 Multivariada", col="lightblue", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia" ,xlim = c(-30, 50), xaxt = "n")
+hist(cena1/1e6, main="Cenário 1 Multivariada", col="lightblue", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência" ,xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-20, 40, by = 10))
-hist(cena2/1e6, main="Cenário 2 Multivariada", col="lightcoral", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia", xlim = c(-30, 50), xaxt = "n")
+hist(cena2/1e6, main="Cenário 2 Multivariada", col="lightcoral", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência", xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-20, 40, by = 10))
-hist(cena3/1e6, main="Cenário 3 Multivariada", col="lightgreen", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia", xlim = c(-30, 50), xaxt = "n")
+hist(cena3/1e6, main="Cenário 3 Multivariada", col="lightgreen", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência", xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-20, 40, by = 10))
-hist(cena4/1e6, main="Cenário 4 Multivariada", col="lightgoldenrod", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia", xlim = c(-30, 50), xaxt = "n")
+hist(cena4/1e6, main="Cenário 4 Multivariada", col="lightgoldenrod", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência", xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-20, 40, by = 10))
 
 
@@ -239,7 +239,8 @@ cena5 <- mvnorm(
 )
 
 sigmac6 <- Sigma
-sigmac6[3,3] <- sigmac6[3,3]*2
+sigmac6[3, ] <- sigmac6[3, ] * 2
+sigmac6[, 3] <- sigmac6[, 3] * 2
 
 cena6 <- mvnorm(
   n_sim = 50000,
@@ -266,13 +267,13 @@ cena8 <- mvnorm(
   Sigma = Sigma
 )
 
-hist(cena5/1e6, main="Cenário 5 Multivariada", col="blue", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia" ,xlim = c(-30, 50), xaxt = "n")
+hist(cena5/1e6, main="Cenário 5 Multivariada", col="blue", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência" ,xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-20, 40, by = 10))
-hist(cena6/1e6, main="Cenário 6 Multivariada", col="red", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia", xlim = c(-30, 50), xaxt = "n")
+hist(cena6/1e6, main="Cenário 6 Multivariada", col="red", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência", xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-20, 40, by = 10))
-hist(cena7/1e6, main="Cenário 7 Multivariada", col="green", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia", xlim = c(-30, 50), xaxt = "n")
+hist(cena7/1e6, main="Cenário 7 Multivariada", col="green", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência", xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-20, 40, by = 10))
-hist(cena8/1e6, main="Cenário 8 Multivariada", col="gold", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frênquecia", xlim = c(-30, 50), xaxt = "n")
+hist(cena8/1e6, main="Cenário 8 Multivariada", col="gold", breaks=30, xlab = "Lucro Anual em Milhões", ylab = "Frequência", xlim = c(-30, 50), xaxt = "n")
 axis(1, at = seq(-20, 40, by = 10))
 
 rbind(
@@ -281,4 +282,3 @@ rbind(
   Cenário7 = resumo(cena7),
   Cenário8 = resumo(cena8)
 )
-
